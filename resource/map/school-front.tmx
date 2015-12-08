@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="30" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="music" value="outside.ogg"/>
+ </properties>
+ <tileset firstgid="1" name="tileset1" tilewidth="32" tileheight="32">
+  <image source="tileset1.png" width="384" height="1024"/>
+ </tileset>
+ <layer name="tile" width="60" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzNmL1OA0EMhC+iJh30gESHgDKkBsR10IMCJSEpIeIFgbdiD86SsWyv7d0LV4xygsTZb2e8P1lNmmZFtE66SLrpX0H3SQ/9827zv8LjavvXTdIrw5PTMumpr3GbdEe4x8J7zIzrJcCLPcaeYv7uO6e98DNV7n3ROpQTFPV4LdQD/jH4W5MZZxr3SKeTAn9/lD4/RXMWqXOq8EaZJY9nSXu99snzkfB3/HyQdJh5T+55Tsa0QP6AN95eBl66Zs0yc7sNAW/bsz4z/ng8fkt6n/BrlpVXWtu94upgf8FH2oNWjzGrlGcLE52n6NxwdYAXvJV60OKxlGOO18OkyVsHeKl/lJfOh2fv9eZ5SHG8XC4tee54W+W7JF4tk9xZqCTjwIvzSse9MLByfW9dn7k8lKxZWsbpehX1lusDaX22sNTqb413w7CW8Ep5rs3iyQI9b1BZs6zxwv1QW6+Gyi+tneP1eIt7gRu/xjtUfmltzEvX1hJvufGPaT8qzbF0Lhs7b8f5GGC17EmXSVdBnTFjPw/UuS70VOvhmn3JZSO39uQU/Q3Huh9xsq7LHl5LzSG81c6WXv89vFrN6J1e85ab31b5n8Wf2nmO/j7H8WrzazkrW/cyjtdyv4A1OXff82TZIvDckmmJ13suq9G3dB+ifVvj9xmJ19Kr2NMarByzlGHIW24OpLvkV/OXd5ueluxHuQxLd8mdxPvZ5HnBz9qeRnklP6U9rOP9aH55gXlOPjukn99YOvVN
+  </data>
+ </layer>
+ <layer name="obstruction" width="60" height="30" visible="0" opacity="0.37">
+  <data encoding="base64" compression="zlib">
+   eJztl1EKgDAMQ3eb3f+G/ovVpS411DwYCIPEB1W2MYwxf2KKrCqm2DObyq4IRd9dc3eV8+U8R92IL5qj6ItmIjmK88xEwfdpJjM9O/OyoN9Z9t3UfFdcWGcDVV80F/mfV3HXxZrf834H35VeNd8q7Mvt2nmPU78PviHy7Yp97dsJ+9q3E/a1L5MDS+YZcg==
+  </data>
+ </layer>
+ <objectgroup name="object" width="60" height="30">
+  <object name="front-door" type="Link" x="928" y="160" width="64" height="32">
+   <properties>
+    <property name="link" value="front-door"/>
+    <property name="map" value="school-hall.tmx"/>
+   </properties>
+  </object>
+  <object name="Elmo" type="Character" x="864" y="288" width="32" height="32">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="script" value="elmo"/>
+    <property name="sprite" value="sprite2.png"/>
+   </properties>
+  </object>
+  <object name="Jack" type="Character" x="992" y="320" width="32" height="32">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="script" value="jack"/>
+    <property name="sprite" value="sprite3.png"/>
+   </properties>
+  </object>
+  <object name="Panda" type="Character" x="896" y="384" width="32" height="32">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="script" value="panda"/>
+    <property name="sprite" value="panda.png"/>
+   </properties>
+  </object>
+  <object name="@pandaFee" type="Character" x="928" y="896" width="32" height="32">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="script" value="fee"/>
+    <property name="sprite" value="panda.png"/>
+   </properties>
+  </object>
+  <object name="@pandaFi" type="Character" x="960" y="896" width="32" height="32">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="script" value="fi"/>
+    <property name="sprite" value="panda.png"/>
+   </properties>
+  </object>
+  <object name="@pandaFo" type="Character" x="992" y="896" width="32" height="32">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="script" value="fo"/>
+    <property name="sprite" value="panda.png"/>
+   </properties>
+  </object>
+  <object name="@pandaFum" type="Character" x="1024" y="896" width="32" height="32">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="script" value="fum"/>
+    <property name="sprite" value="panda.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

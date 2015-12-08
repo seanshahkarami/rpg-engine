@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="41" height="20" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="music" value="school.ogg"/>
+ </properties>
+ <tileset firstgid="1" name="tileset1" tilewidth="32" tileheight="32">
+  <image source="tileset1.png" width="384" height="1024"/>
+ </tileset>
+ <layer name="tile" width="41" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzLYmBgmDWIcQkQTwBiXiDmg2Jk9kDzQewmqBulBzGGuVF9EONRN466cTDhUTeOunEw4aHixgwg7sGCVyCpW4ZDDaWYGDvSgZgJBwaFrxoUN+FRRwkm1Y4sBtQ20UYk/ZsYaNPuIsaOEjQ/gdpChlDMi6QfWRxZnpsRuxyxGN0OdPthbTNkN64GYlsolkLSL4UkDsMgteKM2OWIxeh2oNsvhcWNaoMQI7sRV/4eaAzK1wA1y8BG
+  </data>
+ </layer>
+ <layer name="obstruction" width="41" height="20" visible="0" opacity="0.27">
+  <data encoding="base64" compression="zlib">
+   eJxjYBj8IJdxaODBDEbdSB0w6kbqgFE3UgeMupE6YNSN1AHE1pH0qIfJqavR9dMCUGrHYHTjUIhrQmmAFn7AZwe5YT0QgF7xSSkGAHARWqs=
+  </data>
+ </layer>
+ <objectgroup name="object" width="41" height="20">
+  <object name="east-link" type="Link" x="1248" y="544" width="32" height="64">
+   <properties>
+    <property name="link" value="west-link"/>
+    <property name="map" value="school-hall.tmx"/>
+   </properties>
+  </object>
+  <object name="Janitor Door" type="Link" x="480" y="544" width="32" height="32">
+   <properties>
+    <property name="link" value="Janitor Door"/>
+    <property name="map" value="school-janitor.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

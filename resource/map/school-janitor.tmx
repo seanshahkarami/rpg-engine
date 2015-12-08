@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="7" height="7" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="music" value="school.ogg"/>
+ </properties>
+ <tileset firstgid="1" name="tileset1" tilewidth="32" tileheight="32">
+  <image source="tileset1.png" width="384" height="1024"/>
+ </tileset>
+ <layer name="tile" width="7" height="7">
+  <data encoding="base64" compression="zlib">
+   eJzLYmBgmIUFlwDxBCDmBWJDKN0OpZugcquB2BaIpYC4A0rD5GqBWA0Nw+TQxbdD5TKAuAeIV0DFl0H56UDMBMUZWMQAgtURzg==
+  </data>
+ </layer>
+ <layer name="obstruction" width="7" height="7" visible="0" opacity="0.37">
+  <data encoding="base64" compression="zlib">
+   eJzLZWRgyKUQIwNc4shyuMTR9RJrPwBgEQ/n
+  </data>
+ </layer>
+ <objectgroup name="object" width="7" height="7">
+  <object name="Janitor Door" type="Link" x="96" y="160" width="32" height="32">
+   <properties>
+    <property name="link" value="Janitor Door"/>
+    <property name="map" value="school-gym.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

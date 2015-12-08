@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="16" height="16" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="music" value="school.ogg"/>
+ </properties>
+ <tileset firstgid="1" name="tileset1" tilewidth="32" tileheight="32">
+  <image source="tileset1.png" width="384" height="1024"/>
+ </tileset>
+ <layer name="tile" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzLYmBgmIWGKwjwYbgEiCcAMS8Ua0DpPUhiyPw1aOJNUP3eQCwFxL5AvBoqJ4WEYfwdUDoSSsP0q0GxIJSWQhLDxodhdP2kYpj+WjTxLTj4gkhuhOnPAeKlaLgRiPdC1ewG4sVY1IBwKYHwV0MLb3SMHv6maOENCztk7I2kntjwh2FZMsN/Ow6MSz96+OOLvwwg7kHDM0jQz4QFE5umcOmHuWkFVN0yLG4E4XQc+tHNwacOAMm7RrE=
+  </data>
+ </layer>
+ <layer name="obstruction" width="16" height="16" opacity="0.37">
+  <data encoding="base64" compression="zlib">
+   eJyzYmRgsBoEGATQ+TCALI9OI6tF10cIYLOLHP243IvOx+ZeUsKE0jAlRi0292PzMy7/EAovXGYR0kfI7fjsIcfcgdZPrTRACAMAYjAikw==
+  </data>
+ </layer>
+ <objectgroup name="object" width="16" height="16">
+  <object name="Office Door" type="Link" x="256" y="448" width="32" height="32">
+   <properties>
+    <property name="link" value="Office Door"/>
+    <property name="map" value="school-hall.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

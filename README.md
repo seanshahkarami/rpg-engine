@@ -8,9 +8,9 @@ ruby -I. main.rb
 
 Since it was hacked together, I can't guarentee it'll be easy to get working, so here are a couple screenshots from it actually running.
 
-![Inside the School](/screenshots/screen2.tiff)
-![Front of the School](/screenshots/screen1.tiff)
-![Confront the Panda](/screenshots/screen3.tiff)
+![Inside the School](/screenshots/screen2.png)
+![Front of the School](/screenshots/screen1.png)
+![Confront the Panda](/screenshots/screen3.png)
 
 Note! The graphics and audio are NOT mine. I just threw in some things I had laying around from the RPG Maker 95 era to test the engine.
 

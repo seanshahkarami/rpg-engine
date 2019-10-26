@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: rgb(16, 8, 32);
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box div {
+            width: 640px;
+            height: 480px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <canvas id="map" width="640" height="480">
+        </canvas>
+    </div>
+
+    <script>
+        let canvas = document.getElementById("map");
+        let context = canvas.getContext("2d");
+
+        let layers = [{ "name": "tile", "width": 30, "height": 18, "visible": true, "data": [106, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 116, 144, 13, 49, 49, 49, 13, 267, 13, 49, 49, 49, 49, 49, 49, 13, 13, 49, 49, 49, 49, 49, 49, 13, 267, 13, 49, 49, 49, 13, 130, 144, 26, 61, 61, 61, 26, 279, 26, 61, 73, 61, 61, 61, 61, 26, 26, 61, 61, 61, 61, 61, 61, 26, 279, 26, 61, 61, 73, 26, 130, 144, 38, 38, 38, 38, 38, 38, 38, 38, 98, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 169, 181, 38, 38, 125, 98, 38, 130, 104, 140, 140, 140, 140, 140, 140, 140, 140, 140, 140, 168, 38, 38, 38, 38, 38, 38, 166, 140, 140, 140, 140, 140, 140, 140, 140, 140, 140, 103, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 144, 38, 38, 38, 38, 38, 38, 130, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 144, 38, 38, 38, 38, 38, 38, 130, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 144, 38, 38, 38, 38, 38, 38, 130, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 144, 38, 38, 38, 38, 38, 38, 130, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 144, 38, 38, 38, 38, 38, 38, 130, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 144, 38, 38, 38, 38, 38, 38, 130, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 106, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 177, 38, 38, 38, 38, 38, 38, 178, 154, 154, 154, 154, 154, 154, 154, 154, 154, 154, 116, 144, 13, 13, 13, 13, 13, 268, 13, 13, 13, 13, 13, 38, 38, 38, 38, 38, 38, 13, 13, 13, 13, 13, 268, 13, 13, 13, 13, 13, 130, 144, 26, 26, 26, 26, 26, 280, 26, 26, 26, 26, 26, 38, 38, 38, 38, 38, 38, 26, 26, 26, 26, 26, 280, 26, 26, 26, 26, 26, 130, 144, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 130, 104, 140, 140, 140, 140, 140, 140, 140, 140, 140, 140, 168, 38, 38, 38, 38, 38, 38, 166, 140, 140, 140, 140, 140, 140, 140, 140, 140, 140, 103, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 144, 38, 38, 38, 38, 38, 38, 130, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 104, 140, 140, 140, 140, 140, 140, 103, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] }, { "name": "obstruction", "width": 30, "height": 18, "visible": false, "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 0, 365, 365, 365, 0, 0, 0, 365, 365, 365, 365, 365, 365, 0, 0, 365, 365, 365, 365, 365, 365, 0, 0, 0, 365, 365, 365, 0, 365, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 365, 0, 0, 0, 0, 0, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 0, 0, 0, 0, 0, 0, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 0, 0, 0, 0, 0, 0, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 0, 0, 0, 0, 0, 0, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 365, 365, 365, 365, 365, 365, 365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }];
+
+        let music = new Audio();
+
+        music.oncanplaythrough = function () {
+            console.log("loaded music", music.src);
+            music.play();
+        }
+
+        music.src = "music/school.mp3";
+
+        let player = { tileX: 15, tileY: 9, x: 32 * 15, y: 32 * 9 };
+        let camera = { x: player.x, y: player.y };
+
+        let tileset = new Image();
+        // or, keep link to source image used?
+        let tiles = [null];
+
+        function updateCoord(x, tx) {
+            if (Math.abs(x - tx) < 4) {
+                return tx;
+            }
+
+            if (x < tx) {
+                return x + 4;
+            } else {
+                return x - 4;
+            }
+        }
+
+        function renderMap() {
+            player.x = updateCoord(player.x, 32 * player.tileX);
+            player.y = updateCoord(player.y, 32 * player.tileY);
+
+            camera.x = player.x - 16;
+            camera.y = player.y - 16;
+
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            context.save();
+
+            const viewLeft = camera.x - canvas.width / 2;
+            const viewRight = camera.x + canvas.width / 2;
+            const viewTop = camera.y - canvas.height / 2;
+            const viewBottom = camera.y + canvas.height / 2;
+
+            const tileLeft = Math.floor(viewLeft / 32);
+            const tileRight = Math.ceil(viewRight / 32);
+            const tileTop = Math.floor(viewTop / 32);
+            const tileBottom = Math.ceil(viewBottom / 32);
+
+            context.translate(-viewLeft, -viewTop);
+
+            for (const layer of layers) {
+                if (!layer.visible) {
+                    continue;
+                }
+
+                const left = Math.max(tileLeft, 0);
+                const right = Math.min(tileRight, layer.width);
+                const top = Math.max(tileTop, 0);
+                const bottom = Math.min(tileBottom, layer.height);
+
+                for (let row = top; row < bottom; row++) {
+                    for (let col = left; col < right; col++) {
+                        let tile = tiles[layer.data[layer.width * row + col]];
+                        context.drawImage(tileset, tile.x, tile.y, 32, 32, 32 * col, 32 * row, 32, 32);
+                    }
+                }
+            }
+
+            context.fillRect(player.x, player.y, 32, 32);
+
+            context.restore();
+        }
+
+        let keymap = {
+            "w": function (e) { player.tileY -= 1; },
+            "s": function (e) { player.tileY += 1; },
+            "a": function (e) { player.tileX -= 1; },
+            "d": function (e) { player.tileX += 1; },
+        };
+
+        window.onkeypress = function (e) {
+            const handler = keymap[e.key];
+
+            if (handler) {
+                handler(e);
+            }
+        }
+
+        tileset.onload = function () {
+            // tile convention is to start from 1
+            tiles = [null];
+
+            // build location index
+            for (let y = 0; y < tileset.height; y += 32) {
+                for (let x = 0; x < tileset.width; x += 32) {
+                    tiles.push({ x: x, y: y });
+                }
+            }
+
+            renderMap();
+            setInterval(renderMap, 1000 / 60);
+        }
+
+        tileset.src = "tileset/tileset1.png";
+    </script>
+</body>
+
+</html>

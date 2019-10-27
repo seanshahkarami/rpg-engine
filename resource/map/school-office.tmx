@@ -17,9 +17,9 @@
   </data>
  </layer>
  <objectgroup name="object" width="16" height="16">
-  <object name="Office Door" type="Link" x="256" y="448" width="32" height="32">
+  <object name="office-door" type="Link" x="256" y="448" width="32" height="32">
    <properties>
-    <property name="link" value="Office Door"/>
+    <property name="link" value="office-door"/>
     <property name="map" value="school-hall.tmx"/>
    </properties>
   </object>
